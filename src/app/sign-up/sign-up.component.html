@@ -1,0 +1,81 @@
+<form [formGroup]="form" (ngSubmit)="login()">
+  <div class="alert alert-danger" *ngIf="form.errors?.['invalidLogin']">
+    Invalid UserName/Password
+  </div>
+
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input
+      id="username"
+      type="text"
+      class="form-control"
+      formControlName="username"
+    />
+    <div
+      class="spinner-border text-info"
+      role="status"
+      *ngIf="username?.pending"
+    >
+      <span class="sr-only">.......</span>
+    </div>
+    <div
+      class="alert alert-danger"
+      *ngIf="username?.touched && !username?.valid"
+    >
+      <div *ngIf="username?.errors?.['required']">Username is required</div>
+      <div *ngIf="username?.errors?.['minlength']">
+        Username must be minimum of
+        {{ username?.errors?.['minlength'].requiredLength }} characters
+      </div>
+      <div *ngIf="username?.errors?.['cannotContainSpace']">
+        Username cannot contain space
+      </div>
+      <div *ngIf="username?.errors?.['mustbeUnique']">
+        Username already taken
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input
+      id="password"
+      type="password"
+      class="form-control"
+      formControlName="password"
+    />
+    <div
+      class="alert alert-danger"
+      *ngIf="password?.touched && !password?.valid"
+    >
+      Password is required
+    </div>
+  </div>
+
+  <div formGroupName="address">
+    <div class="form-group">
+      <label for="doornumber">DNO#</label>
+      <input
+        type="text"
+        id="doornumber"
+        class="form-control"
+        formControlName="doorNumber"
+      />
+    </div>
+    <div class="form-group">
+      <label for="city">City</label>
+      <input type="text" class="form-control" formControlName="city" />
+    </div>
+    <div *ngIf="city?.touched && !city?.valid">
+      <div class="alert alert-danger" *ngIf="city?.errors?.['required']">
+        city can't be empty
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="state">State</label>
+      <input type="text" class="form-control" formControlName="state" />
+    </div>
+  </div>
+
+  <button class="btn btn-primary">Sign Up</button>
+</form>

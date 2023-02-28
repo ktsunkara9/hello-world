@@ -1,0 +1,20 @@
+<form>
+  <div class="form-group">
+    <input
+      type="text"
+      class="form-control"
+      (keyup.enter)="addLanguage(language)"
+      #language
+    />
+  </div>
+
+  <ul class="list-group">
+    <li
+      class="list-group-item"
+      *ngFor="let language of languages.controls; let i; as: index"
+      (click)="removeLanguage(i)"
+    >
+      {{ language }}
+    </li>
+  </ul>
+</form>
