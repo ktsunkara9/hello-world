@@ -19,6 +19,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { PostComponent } from './post/post.component';
+import { CourseComponent } from './course/course.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { PostComponent } from './post/post.component';
     NavBarComponent,
     HomeComponent,
     NotFoundComponent,
-    PostComponent
+    PostComponent,
+    CourseComponent
   ],
   imports: [
     BrowserModule,
@@ -51,6 +53,11 @@ import { PostComponent } from './post/post.component';
   providers: [
     PostsService
   ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule
+  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

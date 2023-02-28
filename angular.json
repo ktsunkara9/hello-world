@@ -16,9 +16,7 @@
             "outputPath": "dist/hello-world",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
@@ -43,6 +41,15 @@
                   "maximumError": "4kb"
                 }
               ],
+<<<<<<< HEAD
+=======
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+>>>>>>> a2310478bb9d8c38b9a080c77654a9e8e1f4ca59
               "outputHashing": "all"
             },
             "development": {
@@ -77,11 +84,18 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
+<<<<<<< HEAD
             "polyfills": [
               "zone.js",
               "zone.js/testing"
             ],
             "tsConfig": "tsconfig.spec.json",
+=======
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
+>>>>>>> a2310478bb9d8c38b9a080c77654a9e8e1f4ca59
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -94,5 +108,11 @@
         }
       }
     }
+<<<<<<< HEAD
+=======
+  },
+  "cli": {
+    "analytics": "5f0fa486-054e-41d0-b126-0add8006e681"
+>>>>>>> a2310478bb9d8c38b9a080c77654a9e8e1f4ca59
   }
 }
